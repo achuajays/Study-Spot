@@ -9,7 +9,7 @@ Project Study Spot is an all-in-one platform designed to enhance the learning ex
    ```bash
    git clone https://github.com/achuajays/Study-Spot.git
    ```
-
+### Run migrations:
 ```bash
 python manage.py migrate
 ```
