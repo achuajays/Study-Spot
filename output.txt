@@ -1,0 +1,5 @@
+- Mark: 70
+- Remark: 
+  - Content does not align with the given topic "Python"
+  - No relevant information related to Python in the assignment
+  - Unable to grade due to lack of relevance to the provided topic
