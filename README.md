@@ -3,7 +3,22 @@
 ## Overview
 
 Project Study Spot is an all-in-one platform designed to enhance the learning experience for students and teachers alike. With a wide range of tools and features, it aims to streamline various aspects of education, from automatic grading systems to career recommendation services. Whether you're a student looking to excel academically or a teacher seeking innovative teaching aids, Project Study Spot has you covered.
+## Installation
 
+### Clone the repository:
+   ```bash
+   git clone https://github.com/achuajays/Study-Spot.git
+   ```
+
+```bash
+python manage.py migrate
+```
+### Start the development server:
+
+```bash
+python manage.py runserver
+```
+Access the application at http://127.0.0.1:8000/.
 ## Features
 
 ### Automatic Grading System
