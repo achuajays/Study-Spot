@@ -1,0 +1,41 @@
+.gallery img {
+    width: 100px; /* Small size for side images */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery .main-image {
+    display: block;
+    margin: 0 auto 20px;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.side-images {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.main-image{
+    height:300px;
+    width:500px;
+    border-radius: 2%;
+    border: 4px solid black;
+}
+
+.gallery{
+background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD1y2RP_Lzw_B1Tn404GoLN-wSas-SiRi5NiMpN2cUIA&s');
+}
+
+.divassign{
+    margin-left: 35%;
+}
+
+#assignment_id{
+    border: 3px solid rgb(29, 203, 6);
+}
+
+.divupload{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
