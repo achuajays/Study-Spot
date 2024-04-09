@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>summarizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet"> 
+    <style>
+        /* Custom CSS */
+        body {
+            margin-left: 8%;
+            margin-right: 8%;
+        }
+        pre {
+            overflow-y: auto;
+            max-height: 300px; /* Adjust the max height as needed */
+        }
+    </style>
+</head>
+<body class="bg-blue-100">
+    <div class="container mx-auto py-8">
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-2xl font-bold mb-4">Summarizer Assistant</h1>
+            <form method="POST" class="space-y-4">
+                {% csrf_token %}
+                <label for="user_input" class="block font-medium">Enter your query:</label>
+                <input type="text" name="user_input" id="user_input" class="border-2 border-gray-300 p-2 rounded-lg w-1/2">
+                <button type="submit" class="bg-blue-500 text-white p-2 rounded-lg">Submit</button>
+            </form>
+            {% if output %}
+                <pre class="p-4">{{ output }}</pre>
+            {% endif %}
+        </div>
+    </div>
+    <div class="container mx-auto py-4">
+        <a href="{% url 'home' %}" class="block text-center bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+            Home
+        </a>
+    </div>
+</body>
+</html>

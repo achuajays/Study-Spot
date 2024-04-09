@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display All Marks</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-100 p-8">
+    <h1 class="text-2xl font-bold mb-4">Display All Marks</h1>
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <label for="user_input" class="block">Enter User Input:</label>
+        <input type="text" id="user_input" name="user_input" class="border border-gray-300 p-2 rounded-md">
+        <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md ml-2 hover:bg-blue-600 transition duration-300">Submit</button>
+    </form>
+
+    {% if marks_filter %}
+        <div class="grid grid-cols-1 gap-4">
+            {% for mark in marks_filter %}
+                <div class="border border-gray-300 p-4 rounded-md hover:bg-gray-50 transition duration-300">
+                    <p class="text-lg font-semibold">Student id: {{ mark.name }} <br> Mark: {{ mark.mark }}</p>
+                    <a href="{% url 'report_card' mark.id %}" class="block bg-blue-500 text-white py-2 px-4 rounded-md mt-2 text-center hover:bg-blue-600 transition duration-300">Download report card</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No marks found.</p>
+    {% endif %}
+
+    <div class="mt-4">
+        <a href="{% url 'home' %}" class="block bg-gray-500 text-white py-2 px-4 rounded-md text-center hover:bg-gray-600 transition duration-300">Home Page</a>
+    </div>
+</body>
+</html>

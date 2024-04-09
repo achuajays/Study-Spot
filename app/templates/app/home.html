@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="static/study-spot.png" id="imageLink" class="text-xl font-semibold">
+                <img style="height:60px;width:120px;border-radius: 50%;" src="{% static 'images/study-spot.png' %}" alt="STUDY-SPOT">
+            </a>
+            <div class="container" style="margin-left: 20%;">
+                <a href="#" class="px-4 py-2 hover:bg-gray-700 rounded">Home</a>
+                <a href="{% url 'carrier' %}" class="px-4 py-3 hover:bg-gray-700 rounded">Career</a>
+                <a href="{% url 'ocr_pdf' %}" class="px-4 py-3 hover:bg-gray-700 rounded">placement</a>
+				<a href="{% url 'student_tool' %}" class="px-3 py-2 hover:bg-gray-700 rounded">{{ category }}-Tool</a>
+				
+				{% if category == 'student' %}
+				<a href="{% url 'upload_file' %}" class="px-4 py-2 hover:bg-gray-700 rounded">Assignment</a>
+				{% endif %}
+				{% if category == 'teacher' %}
+				<a href="{% url 'ai_grading' %}" class="px-4 py-2 hover:bg-gray-700 rounded">Assignment Grading</a>
+				<a href="{% url 'display_all_marks' %}" class="px-4 py-2 hover:bg-gray-700 rounded">Report-Card</a>
+				{% endif %}
+				{% if category == 'admin' %}
+				<a href="{% url 'register' %}" class="px-4 py-2 hover:bg-gray-700 rounded">register</a>
+				{% endif %}
+
+            </div>
+            <button class="border-2 border-red-500 text-red-500 hover:bg-red-700 hover:text-white font-bold py-2 px-4 rounded">
+                <a href="/">
+                Logout
+                </a>
+            </button>
+        </div>
+    </nav>
+    <div id="gallery" class="gallery"><br>
+        <img src="{% static 'images/image1.jpg' %}" alt="Image 1" class="main-image">
+        <div class="side-images">
+            <img src="{% static 'images/image2.jpg' %}" alt="Image 2">
+            <img src="{% static 'images/image3.jpg' %}" alt="Image 3">
+            <img src="{% static 'images/image4.jpg' %}" alt="Image 3">
+            <img src="{% static 'images/image5.jpg' %}" alt="Image 3">
+            <img src="{% static 'images/image6.jpg' %}" alt="Image 3">
+            <img src="{% static 'images/image7.jpg' %}" alt="Image 3">
+        </div>
+
+    <!-- Jumbotron -->
+    <div class="bg-blue-500 text-white text-center py-20 mt-10">
+        <h1 class="text-5xl font-bold mb-4">WELCOME TO STUDY-SPOT!</h1>
+        <p class="text-xl font-light">We are excited to have you here.This website help you to manage your college profile.</p><br>
+    <div class="flex justify-center space-x-5">
+        <a href="https://twitter.com/" class="hover:text-gray-300" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter fa-2x"></i>
+        </a>
+        <a href="https://www.facebook.com/" class="hover:text-gray-300" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook fa-2x"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=+919434841234&text=I'm%20interested%20in%20your%20services" class="hover:text-gray-300" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp fa-2x"></i>
+        </a>
+        <a href="mailto:example@gmail.com" class="hover:text-gray-300">
+            <i class="fas fa-envelope fa-2x"></i>
+        </a>
+    </div>
+</div>
+</div>
+</body>
+<script src="{% static 'script.js' %}"></script>
+</html>

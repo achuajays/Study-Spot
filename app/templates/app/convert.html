@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP4 to MP3 Converter</title>
+</head>
+<body>
+    <h1>MP4 to MP3 Converter</h1>
+    <form  method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="mp4_file">Select an MP4 file:</label><br>
+        <input type="file" id="mp4_file" name="mp4_file" accept=".mp4"><br><br>
+        <button type="submit">Convert to MP3</button>
+    </form>
+</body>
+</html>

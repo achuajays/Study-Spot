@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image and Type</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-100 flex justify-center items-center h-screen">
+    <div class="max-w-md bg-white p-6 rounded-md shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Generate Line Drawing</h2>
+        <p class="mb-4">Upload an image and select the version to generate a line drawing.</p>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="file" accept=".jpg, .jpeg, .png" required class="border border-gray-300 rounded-md px-4 py-2 mb-4">
+            <label for="version" class="block mb-2">Select Version:</label>
+            <select name="version" id="version" class="border border-gray-300 rounded-md px-4 py-2 mb-4">
+                <option value="Simple Lines">Simple Lines</option>
+                <option value="Complex Lines">Complex Lines</option>
+            </select>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Generate</button>
+        </form>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"><a href="{% url 'home' %}" style="text-decoration:none;" >Home</a></button>
+    </div>
+</body>
+</html>

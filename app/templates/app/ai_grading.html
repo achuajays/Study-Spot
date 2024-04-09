@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Grading</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-100">
+    <div class="container mx-auto py-8 flex mt-5 flex-col items-center">
+        {% if files %}
+            <div class="bg-white shadow-md rounded-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-4">Files</h2>
+                <ul class="space-y-4">
+                    {% for file in files %}
+                        <li><a href="{{ file.file_upload.url }}" class="text-blue-500 hover:underline" download="transcription.pdf">{{ file.file_upload.name }}</a></li>
+                    {% endfor %}
+                </ul>
+                <p class="mt-8">{{ output }}</p>
+            </div>
+        {% else %}
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data" class="bg-white shadow-md rounded-lg p-8 mb-8">
+            {% csrf_token %}
+            <label for="user_input" class="block font-medium mb-2">Enter a Description:</label>
+            <input type="text" id="user_input" name="user_input" class="border-2 border-gray-300 p-2 rounded-lg w-full mb-4">
+
+            <!-- Additional input fields -->
+            <input type="text" id="topic" name="topic" class="border-2 border-gray-300 p-2 rounded-lg w-full mb-4" placeholder="Enter Topic">
+            <input type="text" id="mark" name="mark" class="border-2 border-gray-300 p-2 rounded-lg w-full mb-4" placeholder="Enter Mark">
+            <!-- End of additional input fields -->
+
+            <button type="submit" class="bg-blue-500 text-white p-2 rounded-lg w-full">Submit</button>
+        </form>
+
+        <button type="submit" class="bg-blue-500 text-white p-2 rounded-lg w-100"><a href="{% url 'home' %}" style="text-decoration:none;" class="hover:underline">Home Page</a></button>
+    </div>
+</body>
+</html>

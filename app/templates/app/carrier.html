@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet"> 
+    
+    <style>
+        /* Glassmorphism effect for the heading */
+        .glass-heading {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+        }
+
+        /* Hover effect for input boxes */
+        input:hover {
+            transform: scale(1.02); /* Enlarge slightly on hover */
+        }
+        .dost{
+            display:flex;
+            width:50%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8 px-4">
+        <center>
+        <h1 class="text-2xl text-red-600 font-bold mb-4 py-2 px-4 glass-heading">Career Questionnaire Quiz</h1><br>
+        </center>
+        <form action="{% url 'process_responses' %}" method="post" class="space-y-4">
+            {% csrf_token %}
+            <div class=" p-3 bg-white  rounded-md shadow-md">
+                <label for="activity" class="block font-medium">What activities or hobbies do you find yourself naturally gravitating towards in your free time?</label>
+                <input type="text" id="activity" name="activity" class="border-2 border-gray-300 p-2 rounded-lg w-full">
+            </div>
+
+            <div class="p-4 bg-white rounded-md shadow-md">
+                <label for="ideal_workday" class="block font-medium">When you envision your ideal workday, what tasks or responsibilities are you performing?</label>
+                <input type="text" id="ideal_workday" name="ideal_workday" class="border-2 border-gray-300 p-2 rounded-lg w-full">
+            </div>
+
+            <div class="p-4 bg-white rounded-md shadow-md">
+                <label for="subject" class="block font-medium">What subjects or topics do you enjoy learning about the most?</label>
+                <input type="text" id="subject" name="subject" class="border-2 border-gray-300 p-2 rounded-lg w-full">
+            </div>
+
+            <div class="p-4 bg-white rounded-md shadow-md">
+                <label for="industry" class="block font-medium">Is there a particular industry or field that has always piqued your interest?</label>
+                <input type="text" id="industry" name="industry" class="border-2 border-gray-300 p-2 rounded-lg w-full">
+            </div>
+
+            <div class="p-4 bg-white rounded-md shadow-md">
+                <label for="skill" class="block font-medium">Are there any specific skills or talents you possess that you're particularly proud of?</label>
+                <input type="text" id="skill" name="skill" class="border-2 border-gray-300 p-2 rounded-lg w-full">
+            </div>
+
+            <div class="p-4 bg-white rounded-md shadow-md">
+                <label for="values" class="block font-medium">What are your core values, and how do you envision them aligning with your future career?</label>
+                <input type="text" id="values" name="values" class="border-2 border-gray-300 p-2 rounded-lg w-full">
+            </div>
+
+            <div class="p-4 bg-white rounded-md shadow-md">
+                <label for="past_experience" class="block font-medium">Have you had any past experiences (e.g., internships, part-time jobs, volunteer work) that have influenced your career interests?</label>
+                <input type="text" id="past_experience" name="past_experience" class="border-2 border-gray-300 p-2 rounded-lg w-full">
+            </div>
+
+            <div class="p-4 bg-white rounded-md shadow-md">
+                <label for="team_or_individual" class="block font-medium">Do you prefer working independently or as part of a team?</label>
+                <input type="text" id="team_or_individual" name="team_or_individual" class="border-2 border-gray-300 p-2 rounded-lg w-full">
+            </div>
+
+            <div class="p-4 bg-white rounded-md shadow-md">
+                <label for="creativity_or_analysis" class="block font-medium">Are you more drawn to roles that involve creativity and innovation, or those that require analytical thinking and problem-solving?</label>
+                <input type="text" id="creativity_or_analysis" name="creativity_or_analysis" class="border-2 border-gray-300 p-2 rounded-lg w-full">
+            </div>
+
+            <div class="p-4 bg-white rounded-md shadow-md">
+                <label for="career_goals" class="block font-medium">What are your long-term career goals, and what steps do you think you need to take to achieve them?</label>
+                <input type="text" id="career_goals" name="career_goals" class="border-2 border-gray-300 p-2 rounded-lg w-full">
+            </div>
+            <div class="dost">
+            <button type="submit" class="bg-blue-500 text-white p-2 rounded-lg w-full ">Submit</button>
+            <button class="bg-blue-500 text-white p-2 rounded-lg w-full ml-3"><a href="{% url 'home' %}" >Home</a></button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

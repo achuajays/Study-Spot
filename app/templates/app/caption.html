@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Captioning</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/paper.png');
+        }
+        .container-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container-center .bg-white {
+            max-width: 600px;
+        }
+        .container-center .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .container-center .btn-group a {
+            padding: 10px 20px;
+            background-color: #4a5568;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .container-center .btn-group a:hover {
+            background-color: #2d3748;
+        }
+        p{
+            color:red;
+            font-family:fantasy;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body class="bg-blue-100">
+    <div class="container-center">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h1 class="text-2xl font-bold mb-4">Image Captioning</h1>
+            <form method="POST" enctype="multipart/form-data" class="space-y-4">
+                {% csrf_token %}
+                <div class="flex items-center">
+                    <label for="image" class="block font-medium w-1/2">Select an image:</label>
+                    <input type="file" id="image" name="image" class="border-2 border-gray-300 p-2 rounded-lg w-1/2">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white p-2 rounded-lg">Submit</button>
+                {% if caption %}
+                    <h2 class="mt-8 text-2xl font-bold">Caption:</h2>
+                    <p class="mt-2">{{ caption }}</p>
+                {% endif %}
+                {% if output %}
+                    <pre class="mt-8 bg-gray-200 p-4 rounded-lg">{{ output }}</pre>
+                {% endif %}
+            </form>
+            <div class="btn-group mt-4">
+                <a href="{% url 'home' %}">Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

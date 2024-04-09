@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <style>
+        h2{
+            margin-left:40%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="static/study-spot.png" id="imageLink" class="text-xl font-semibold">
+                <img style="height:60px;width:120px;border-radius: 50%;" src="{% static 'images/study-spot.png' %}" alt="STUDY-SPOT"></a>
+            <h2 class="text-xl font-bold text-center my-2 justify-center">Student Tools Dashboard</h2>
+            <h2 class="flex flex-col items-center p-4 bg-green rounded-lg shadow hover:bg-black-50"><a href="{% url 'home' %}"> Home</a></h2>
+        </div>
+    </nav>
+    <div id="gallery" class="gallery"><br>
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Example of a tool button -->
+                    
+                    <a href="{% url 'predict' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                        <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                        <span class="text-center mt-2">Sketching</span>
+                    </a>
+                    <a href="{% url 'transcribe_audio' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                        <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                        <span class="text-center mt-2">Voice to Notes</span>
+                    </a>
+                    <a href="{% url 'caption_image' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                        <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                        <span class="text-center mt-2">Image Caption</span>
+                    </a>
+                    <a href="{% url 'upload_pdf' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                        <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                        <span class="text-center mt-2">Pdf-Understanding(QA)</span>
+                    </a>
+                    <a href="{% url 'roadmap' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                        <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                        <span class="text-center mt-2">Road Map</span>
+                        <a href="{% url 'logic' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                            <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                            <span class="text-center mt-2">Logic Assistant</span>
+                        </a>
+                        <a href="{% url 'law' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                            <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                            <span class="text-center mt-2">Law Assistant</span>
+                        </a>
+                        <a href="{% url 'translator' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                            <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                            <span class="text-center mt-2">Translator</span>
+                        </a>
+                        <a href="{% url 'question' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                            <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                            <span class="text-center mt-2">Question Builder</span>
+                        </a>
+                        <a href="{% url 'text_tone' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                            <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                            <span class="text-center mt-2">Text-Tone Assistent</span>
+                        </a>
+                        <a href="{% url 'summarizer' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                            <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                            <span class="text-center mt-2">Summarize Assistent</span>
+                        </a>
+                        <a href="{% url 'create_presentation' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                            <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                            <span class="text-center mt-2">create_presentation</span>
+                        </a>
+                        <a href="{% url 'chinu' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                            <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                            <span class="text-center mt-2">Chinu Assistent</span>
+                        </a>
+                        <a href="{% url 'chiku' %}" class="flex flex-col items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50">
+                            <svg class="w-6 h-6 mb-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l-2.293 2.293a1 1 0 001.414 1.414L12 5.414l3.879 3.879a1 1 0 001.414-1.414L15 6v13m0 0H9m2 0h2m-2-16h.01"></path></svg>
+                            <span class="text-center mt-2">Chiku Assistant</span>
+                        </a>
+                        
+                    </a>
+                    <!-- Repeat blocks like the above for each tool, changing href, icon, and name as necessary -->
+                </div>
+            </div>
+            <!-- Optionally, include some custom JavaScript for interactive elements -->
+
+    <!-- Jumbotron -->
+    <div class="bg-blue-500 text-white text-center py-20 mt-10">
+        <h1 class="text-5xl font-bold mb-4">WELCOME TO STUDY-SPOT!</h1>
+        <p class="text-xl font-light">We are excited to have you here.This website help you to manage your college profile.</p><br>
+    <div class="flex justify-center space-x-5">
+        <a href="https://twitter.com/" class="hover:text-gray-300" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter fa-2x"></i>
+        </a>
+        <a href="https://www.facebook.com/" class="hover:text-gray-300" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook fa-2x"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=+919434841234&text=I'm%20interested%20in%20your%20services" class="hover:text-gray-300" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp fa-2x"></i>
+        </a>
+        <a href="mailto:example@gmail.com" class="hover:text-gray-300">
+            <i class="fas fa-envelope fa-2x"></i>
+        </a>
+    </div>
+</div>
+</div>
+</body>
+<script src="static/script.js"></script>
+</html>

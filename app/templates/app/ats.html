@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Upload PDF</title>
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/random');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Hides background overflow */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 40px; /* Increased padding */
+            max-width: 600px; /* Increased max-width */
+            width: calc(100% - 40px); /* Added width calculation to accommodate padding */
+            text-align: center;
+            animation: moveBox 10s infinite alternate linear; /* Added animation for moving effect */
+        }
+
+        .btn-home {
+            background-color: #2563eb;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .btn-home:hover {
+            background-color: #1e4bb2;
+        }
+
+        @keyframes moveBox {
+            0% {
+                transform: translate(-5px, -5px);
+            }
+            100% {
+                transform: translate(5px, 5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-bold mb-4 text-green-600">UPLOAD PDF</h1><br>
+        <form method="post" enctype="multipart/form-data" class="space-y-4">
+            {% csrf_token %}
+            <div class="flex items-center">
+                <input type="file" name="pdf_file" accept=".pdf" required class="border-2 border-gray-300 p-2 rounded-lg">
+                <label for="job_requirements" class="block font-medium w-1/2 ml-2">Select job requirements:</label>
+                <input type="text" id="job_requirements" name="job_requirements" class="flex-1 border-2 border-gray-300 p-2 rounded-lg">
+            </div>
+            <button type="submit" id="submit-button" class="bg-blue-500 text-white p-2 rounded-lg w-full relative">
+                <div class="loader hidden absolute inset-0 flex justify-center items-center">
+                    <div class="border-4 border-t-4 border-gray-200 h-6 w-6 rounded-full "></div>
+                </div>
+                <span id="button-text" class="animate-spin">Upload</span>
+            </button>
+        </form>
+        <a href="{% url 'home' %}" class="btn-home">Home Page</a>
+    </div>
+
+    <script>
+        document.getElementById('submit-button').addEventListener('click', function(event) {
+            this.classList.add('disabled', 'cursor-not-allowed');
+            this.querySelector('#button-text').style.display = 'none';
+            this.querySelector('.loader').classList.remove('hidden');
+        });
+    </script>
+</body>
+
+</html>

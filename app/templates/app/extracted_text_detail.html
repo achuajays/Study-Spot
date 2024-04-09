@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracted Text</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .answer-container {
+            margin-left: 6%;
+            margin-right: 6%;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .answer-container:hover {
+            transform: translateY(-5px);
+            margin-left:5%;
+            margin-right:5%;
+        }
+    </style>
+</head>
+<body class="bg-blue-100 min-h-screen flex flex-col justify-center items-center">
+    <h1 class="text-2xl font-bold mb-8">Extracted Text</h1>
+    
+    <h2 class="text-lg font-semibold mb-4">Ask a Question</h2>
+    <form method="post" enctype="multipart/form-data" class="w-full max-w-md bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        {% csrf_token %}
+        <label for="question" class="block text-gray-700 font-bold mb-2">Question:</label>
+        <textarea name="question" id="question" cols="30" rows="10" required class="border-2 border-gray-300 rounded-md p-2 mb-4 w-full"></textarea>
+        
+        <button type="submit" class="bg-blue-500 text-white p-2 rounded-md w-full">Submit</button>
+    </form>
+    <button class="submit-btn" style="color:green;"><a href="{% url 'home' %}"> Home</a></button>
+    
+    {% if answer %}
+        <div class="answer-container mt-8">
+            <h3  class="text-lg font-semibold">Your Question:</h3>
+            <p style="font-size:20px; " class="mb-4">{{ question }}</p>
+            <h3 class="text-lg font-semibold">Answer:</h3>
+            <pre class="bg-gray-200 p-4 rounded-md">{{ answer }}</pre>
+        </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/paper.png');
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .content-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            color: #28a745;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .home-button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .home-button:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body style="background-color: lightblue;">
+    <div class="content-container">
+        <h1 class="text-2xl font-bold mb-4">Upload PDF</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="pdf_file" accept=".pdf" required>
+            <button type="submit">Upload</button>
+            {% if error_message %}
+                <p class="error-message">{{ error_message }}</p>
+            {% endif %}
+            {% if success_message %}
+                <p class="success-message">{{ success_message }}</p>
+            {% endif %}
+        </form>
+        <a href="{% url 'home' %}" class="home-button">Home</a>
+    </div>
+</body>
+</html>
