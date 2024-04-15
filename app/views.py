@@ -28,9 +28,6 @@ def home(request):
     return render(request, 'app/home.html', {'category': category})
 
 
-
-
-
 def logic(request):
     if request.method == 'POST':
         user_input = request.POST.get('user_input')
@@ -65,8 +62,6 @@ def law(request):
             output = completion.choices[0].message.content
             return render(request, 'app/law.html', {'output': output})
     return render(request, 'app/law.html', {})
-
-
 
 
 def translator(request):
@@ -239,30 +234,6 @@ import io
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from openai import OpenAI
-
-
-# def transcribe_audio(request):
-#     if request.method == 'POST':
-#         audio_file = request.FILES['audio_file']
-
-#         # Save the uploaded audio file
-#         fs = FileSystemStorage()
-#         file_path = fs.save(audio_file.name, audio_file)  # Get the saved file path
-
-#         # Authenticate with OpenAI API using your API key
-        
-
-#         # Read the saved file and send to OpenAI API for transcription
-#         with io.open(file_path, 'rb') as f:
-#             transcription = client.audio.transcriptions.create(
-#                 model="whisper-1", 
-#                 file=f, 
-#                 response_format="text"
-#             )
-#         return render(request, 'app/audio_to_text.html', {'output': transcription.text})
-#     return render(request, 'app/audio.html')
-
-
 
 
 def transcribe_audio(request):
