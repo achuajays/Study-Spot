@@ -23,6 +23,8 @@ Access the application at http://127.0.0.1:8000/.
 
 ### Automatic Grading System
 - Simplifies the grading process for teachers by automating assessments and providing instant feedback to students.
+- It will grade assessment according to constraints provided by teacher.
+- Here we used visual transformers such as paddleOCR for data extraction.
 
 ### Career Recommender with Model Resume Builder
 - Assists students in discovering suitable career paths based on their interests and skills.
@@ -33,13 +35,14 @@ Access the application at http://127.0.0.1:8000/.
 - Automatically builds a new resume with indications from the ATS to improve its effectiveness.
 
 ### Teacher Voice-to-Important Bullet Point
-- Allows teachers to convert spoken instructions or lecture notes into concise bullet points, making it easier for students to review key concepts.
+- This part help to convert voice notes of teacher to txt format (only important points get extracted in txt file).
 
 ### Sketch Builder
 - Enables users to create sketches and diagrams to visualize ideas and concepts.
+- colour images gets converted into pencil sketch format.
 
 ### PDF Question Answering
-- Provides a tool to extract and answer questions from PDF documents, aiding in study and research.
+- It act as a tool to extract answer to certain questions in uploaded PDF documents, aiding in study and research.
 
 ### Image Captioning
 - Utilizes AI technology to generate descriptive captions for images, enhancing accessibility and understanding.
@@ -48,7 +51,7 @@ Access the application at http://127.0.0.1:8000/.
 - Helps users create personalized study or career development roadmaps to track progress and set goals.
 
 ### Presentation Builder
-- Offers templates and tools for creating engaging presentations for academic or professional purposes.
+- Offers tools for creating engaging presentations for academic or professional purposes.
 
 ### Logic Assistant
 - Provides assistance with logical reasoning and problem-solving, aiding students in subjects such as mathematics and computer science.
